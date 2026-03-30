@@ -121,4 +121,29 @@ export class ApiService {
   getSiloResources(siloId: string) {
     return this.http.get<Resource[]>(`${this.base}/silos/${siloId}/resources`);
   }
+  // getSilosWithoutAuth() {
+  //   // Don't include Authorization header
+  //   return this.http.get<Silo[]>('/silos');
+  // }
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('ss_token'); // or whatever key you use
+  }
+  // Get silos the current user has already joined
+// getMyMemberships() {
+//   return this.http.get<{ siloId: string }[]>(`${this.base}/memberships/me`);
+// }
+
+// getMyMemberships() {
+//   return this.http.get<{ siloId: string; role: string }[]>(`${this.base}/silos/my-memberships`);
+// }
+
+// Fix the base URL — was missing this.base
+getSilosWithoutAuth() {
+  return this.http.get<Silo[]>(`${this.base}/silos`);
+}
+
+// Fix the base URL
+getMyMemberships() {
+  return this.http.get<{ siloId: string; role: string }[]>(`${this.base}/silos/my-memberships`);
+}
 }

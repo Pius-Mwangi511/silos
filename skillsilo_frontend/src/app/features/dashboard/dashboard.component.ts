@@ -9,9 +9,9 @@ import { Navbar } from "../../design/navbar/navbar";
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, Navbar],
   template: `
-   
+    <app-navbar></app-navbar>
     <div class="animate-fade-in">
       <div class="welcome">
         <div>

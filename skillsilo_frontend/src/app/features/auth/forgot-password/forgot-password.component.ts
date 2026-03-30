@@ -26,7 +26,7 @@ import { ToastService } from '../../../core/services/toast.service';
             <input type="email" formControlName="email" placeholder="you@example.com" />
           </div>
           @if (error) { <div class="error-msg">{{ error }}</div> }
-          <button type="submit" class="btn btn--primary btn--full" [disabled]="loading">
+          <button type="submit" class="btn btn--primary btn--full" [disabled]="loading" routerLink="/auth/reset-password">
             @if (loading) { <span class="spinner"></span> }
             Send Reset Link
           </button>

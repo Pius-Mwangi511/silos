@@ -20,10 +20,10 @@ import { RouterLink } from "@angular/router";
   
     <ul class="nav-links">
       <li><a routerLink="/homepage" id="nav-home" class="active">Home</a></li>
-      <li><a  id="nav-silos">Silos</a></li>
-      <li><a  id="nav-about">About</a></li>
+      <li><a routerLink="/manysilos" id="nav-silos">Silos</a></li>
+      <li><a routerLink="/about" id="nav-about">About</a></li>
       <li><a routerLink="/dashboard" id="nav-dashboard">Dashboard</a></li>
-      <li><a  id="nav-contact">Contact</a></li>
+      <li><a routerLink="/contact" id="nav-contact">Contact</a></li>
     </ul>
   
     <div class="nav-actions">

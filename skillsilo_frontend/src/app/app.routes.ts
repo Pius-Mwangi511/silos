@@ -21,8 +21,20 @@ export const routes: Routes = [
   }, 
   {
     path: 'homepage',
-    canActivate: [guestGuard],
+    
     loadComponent: () => import('./design/homepage/homepage').then(m => m.Homepage)
+  },
+  {
+    path: 'about',
+    loadComponent: () => import('./design/about/about').then(m => m.About)
+  },
+  {
+    path: 'contact',
+    loadComponent: () => import('./design/contact/contact').then(m => m.Contact)
+  },
+  {
+    path: 'manysilos',
+    loadComponent: () => import('./design/silos/silos').then(m => m.Silos)
   },
   {
     path: '',
@@ -64,6 +76,21 @@ export const routes: Routes = [
       {
       path: 'back',
       loadComponent: () => import('./design/homepage/homepage').then(m => m.Homepage)
+    },
+    {
+      path: 'about',
+      
+      loadComponent: () => import('./design/about/about').then(m => m.About)
+    },
+    {
+      path: 'contact',
+      
+      loadComponent: () => import('./design/contact/contact').then(m => m.Contact)
+    },
+    {
+      path: 'manysilos',
+      
+      loadComponent: () => import('./design/silos/silos').then(m => m.Silos)
     },
     ]
   },

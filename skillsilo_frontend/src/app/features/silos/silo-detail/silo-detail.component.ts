@@ -49,7 +49,7 @@ type Tab = 'challenges' | 'chat' | 'resources' | 'members' | 'feedback';
   <div class="silo-header">
     <div class="silo-header-left">
       <div class="big-avatar">
-        {{ silo.skill?.[0]?.toUpperCase() }}
+        {{ silo.skill[0]?.toUpperCase() }}
       </div>
       <div>
         <h1>{{ silo.skill }}</h1>

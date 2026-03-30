@@ -1,11 +1,16 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
-  const token = localStorage.getItem('ss_token');
+  const token = localStorage.getItem('ss_token'); // same key you use in isLoggedIn()
+  
   if (token) {
-    req = req.clone({
-      setHeaders: { Authorization: `Bearer ${token}` }
+    const cloned = req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${token}`
+      }
     });
+    return next(cloned);
   }
+  
   return next(req);
 };
