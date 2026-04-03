@@ -26,9 +26,12 @@ export interface User {
   id: string;
   name: string;
   email: string;
-  phone: string;
+  phone?: string;
   bio?: string;
+  experience?: 'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED'; // ← was string
+  skills?: string[];
   role?: string;
+  isVerified?: boolean;
   createdAt?: string;
 }
 
@@ -124,7 +127,8 @@ export interface Consultation {
   toSiloId: string;
   description: string;
   responseMessage?: string;
-  status: 'PENDING' | 'RESPONDED';
+  status: 'OPEN' | 'PENDING' | 'RESPONDED'; // ← added 'OPEN'
+  respondedAt?: string;                       // ← added
   createdAt: string;
   fromSilo?: Silo;
   toSilo?: Silo;
@@ -140,19 +144,19 @@ export interface CrossSiloRequest {
   id: string;
   title: string;
   content: string;
-  userId: string;
   createdAt: string;
-  user?: User;
+  fromUserId?: string;
+  fromUser?: { id: string; name: string; email: string };
+  user?: { id: string; name: string; email: string };   // fallback
   replies?: CrossSiloReply[];
 }
 
 export interface CrossSiloReply {
   id: string;
   message: string;
-  userId: string;
-  requestId: string;
   createdAt: string;
-  user?: User;
+  userId: string;
+  user?: { id: string; name: string; email: string };
 }
 
 // ── Messages ──────────────────────────────────────────────────
@@ -169,7 +173,7 @@ export interface Message {
 export interface Notification {
   id: string;
   message: string;
-  read: boolean;
+  isRead: boolean;
   userId: string;
   createdAt: string;
 }

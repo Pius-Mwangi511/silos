@@ -71,6 +71,16 @@ export class AuthService {
     this.router.navigate(['/auth/login']);
   }
 
+  // Add this method to AuthService
+updateCurrentUser(updated: User): void {
+  try {
+    localStorage.setItem('ss_user', JSON.stringify(updated));
+    this._currentUser.next(updated);
+  } catch (err) {
+    console.error('AuthService: failed to update user in localStorage', err);
+  }
+}
+
   // =========================
   // PRIVATE HELPERS
   // =========================
