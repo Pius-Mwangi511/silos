@@ -4,12 +4,15 @@ import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../core/services/auth.service';
 import { ToastService } from '../../../core/services/toast.service';
+import { Navbar } from '../../../design/navbar/navbar';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, RouterLink],
+  imports: [ReactiveFormsModule, CommonModule, RouterLink, Navbar],
   template: `
+
+  <app-navbar></app-navbar>
   <div class="auth-page">
     <div class="auth-card animate-fade-in">
       <div class="auth-logo">

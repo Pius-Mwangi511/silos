@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../core/services/auth.service';
 import { RouterLink } from '@angular/router';
+import { Navbar } from "../../../design/navbar/navbar";
 
 @Component({
   selector: 'app-verify-email',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, Navbar],
   template: `
+  <app-navbar></app-navbar>
     <div class="auth-page">
       <div class="auth-card animate-fade-in">
         <div class="auth-logo">
