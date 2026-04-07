@@ -47,6 +47,11 @@ import { Notification } from '../../models';
                  class="nav-item">
                 <span class="nav-icon">💬</span> Consultations
               </a>
+              <a routerLink="/challenges"
+                 routerLinkActive="active"
+                 class="nav-item">
+                <span class="nav-icon">💬</span> Challenges
+              </a>
               <a routerLink="/notifications"
                  routerLinkActive="active"
                  class="nav-item">

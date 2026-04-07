@@ -5,7 +5,7 @@ import {
   ChangeDetectorRef
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import {
   FormsModule,
   ReactiveFormsModule,
@@ -33,7 +33,7 @@ type Tab = 'challenges' | 'chat' | 'resources' | 'members' | 'feedback';
 @Component({
   selector: 'app-silo-detail',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule,RouterModule, ReactiveFormsModule],
   template: `
     <div class="animate-fade-in">
 
@@ -94,9 +94,11 @@ type Tab = 'challenges' | 'chat' | 'resources' | 'members' | 'feedback';
             </div>
 
             <div *ngIf="challenges.length > 0" class="grid-2">
-              <div
-                *ngFor="let c of challenges; trackBy: trackById"
-                class="challenge-card">
+            <a
+       *ngFor="let c of challenges; trackBy: trackById"
+       [routerLink]="['/silos', siloId, 'challenges', c.id]"
+       class="challenge-card"
+       style="text-decoration:none;color:inherit;display:block">
                 <div class="challenge-card-header">
                   <span class="badge badge--muted">
                     {{ c._count?.submissions ?? 0 }} submissions
@@ -107,7 +109,7 @@ type Tab = 'challenges' | 'chat' | 'resources' | 'members' | 'feedback';
                 </div>
                 <h3>{{ c.title }}</h3>
                 <p>{{ c.description }}</p>
-              </div>
+</a>
             </div>
 
             <!-- Challenge Modal -->
